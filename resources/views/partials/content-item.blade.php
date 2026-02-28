@@ -45,7 +45,7 @@
     <header class="mb-6">
         <span class="text-[10px] font-mono text-zinc-300 uppercase tracking-widest">{{ __('content.note_label') }} {{ str_pad($contents->total() - ($contents->firstItem() + $index) + 1, 2, '0', STR_PAD_LEFT) }}</span>
     </header>
-    <p class="text-2xl font-light tracking-tight text-balance">{{ $item->content }}</p>
+    <div class="text-2xl font-light tracking-tight leading-relaxed">{!! nl2br(e($item->content)) !!}</div>
 
     @if($item->images && count($item->images) > 0)
     <div class="mt-6 grid {{ count($item->images) === 1 ? 'grid-cols-1' : (count($item->images) === 2 ? 'grid-cols-2' : 'grid-cols-3') }} gap-2 w-full max-w-sm">

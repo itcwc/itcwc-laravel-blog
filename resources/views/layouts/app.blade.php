@@ -26,42 +26,7 @@
     <meta property="twitter:title" content="@yield('title', $site->share_title ?: $site->site_name)">
     <meta property="twitter:description" content="@yield('description', $site->share_description ?: $site->seo_description)">
 
-    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: {
-                            50: '#fafafa',
-                            300: '#d4d4d4',
-                            400: '#a3a3a3',
-                            900: '#262626'
-                        },
-                        border: '#e5e5e5',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'PingFang SC', 'Helvetica Neue', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .blog-container { max-width: 720px; }
-            .text-balance { text-wrap: balance; }
-        }
-        body { scroll-behavior: smooth; }
-        mark { background-color: #f4f4f5; color: #18181b; font-weight: 500; font-style: normal; }
-        .login-out-form {
-            margin-bottom: 0.35rem;
-        }
-    </style>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     @yield('styles')
 </head>
 
@@ -192,6 +157,9 @@
                 behavior: 'smooth'
             });
         });
+
+
+
     </script>
     @yield('scripts')
 

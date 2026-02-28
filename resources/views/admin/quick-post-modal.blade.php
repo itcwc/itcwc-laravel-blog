@@ -61,22 +61,22 @@
 
 <script>
     const i18n = {
-        note: '{{ __('content.note') }}',
-        article: '{{ __('content.article') }}',
-        enterTitle: '{{ __('content.enter_title') }}',
-        whatsOnYourMind: '{{ __('content.whats_on_your_mind') }}',
-        startWritingArticle: '{{ __('content.start_writing_article') }}',
-        publish: '{{ __('content.publish') }}',
-        update: '{{ __('content.update') }}',
-        delete: '{{ __('content.delete') }}',
-        publishFailed: '{{ __('content.publish_failed') }}',
-        jsonParseFailed: '{{ __('content.json_parse_failed') }}',
-        uploadFailed: '{{ __('content.upload_failed') }}',
-        networkError: '{{ __('content.network_error') }}',
-        securityTokenMissing: '{{ __('content.security_token_missing') }}',
-        cannotGetContentId: '{{ __('content.cannot_get_content_id') }}',
-        confirmDelete: '{{ __('content.confirm_delete') }}',
-        deleteFailed: '{{ __('content.delete_failed ') }}'
+        note: `{{ __('content.note') }}`,
+        article: `{{ __('content.article') }}`,
+        enterTitle: `{{ __('content.enter_title') }}`,
+        whatsOnYourMind: `{{ __('content.whats_on_your_mind') }}`,
+        startWritingArticle: `{{ __('content.start_writing_article') }}`,
+        publish: `{{ __('content.publish') }}`,
+        update: `{{ __('content.update') }}`,
+        delete: `{{ __('content.delete') }}`,
+        publishFailed: `{{ __('content.publish_failed') }}`,
+        jsonParseFailed: `{{ __('content.json_parse_failed') }}`,
+        uploadFailed: `{{ __('content.upload_failed') }}`,
+        networkError: `{{ __('content.network_error') }}`,
+        securityTokenMissing: `{{ __('content.security_token_missing') }}`,
+        cannotGetContentId: `{{ __('content.cannot_get_content_id') }}`,
+        confirmDelete: `{{ __('content.confirm_delete') }}`,
+        deleteFailed: `{{ __('content.delete_failed ') }}`
     };
 
     let currentType = 'note';

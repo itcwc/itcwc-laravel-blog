@@ -35,16 +35,13 @@
         <div class="mt-8 h-[1px] bg-gradient-to-r from-zinc-100 to-transparent"></div>
     </header>
 
-    <div class="prose prose-zinc max-w-none
-                    prose-headings:font-light prose-headings:tracking-tight prose-headings:text-zinc-900
-                    prose-p:text-zinc-500 prose-p:leading-relaxed prose-p:font-light prose-p:text-lg
-                    prose-a:text-zinc-900 prose-a:no-underline prose-a:border-b prose-a:border-zinc-200 hover:prose-a:border-zinc-900 prose-a:transition
-                    prose-blockquote:font-light prose-blockquote:italic prose-blockquote:text-zinc-400
-                    prose-code:text-zinc-800 prose-code:bg-zinc-50 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
-                    prose-img:rounded-sm prose-img:shadow-sm">
-
+    <div class="prose prose-lg prose-stone max-w-none
+            prose-headings:font-light prose-headings:tracking-tight prose-headings:text-zinc-900
+            prose-p:text-zinc-500 prose-p:leading-relaxed prose-p:font-light prose-p:text-lg
+            prose-a:text-zinc-900 prose-a:no-underline prose-a:border-b prose-a:border-zinc-200 hover:prose-a:border-zinc-900 prose-a:transition
+            prose-blockquote:font-light prose-blockquote:italic prose-blockquote:text-zinc-400
+            prose-img:rounded-sm prose-img:shadow-sm">
         @markdown($article->content)
-
     </div>
 
     <div class="mt-20 pt-10 border-t border-zinc-50">

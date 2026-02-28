@@ -171,7 +171,7 @@
             }
         } catch (error) {
             console.error(error);
-            alert('{{ __('settings.failed_to_save') }}' + error.message);
+            alert(`{{ __('settings.failed_to_save') }}` + error.message);
             if (btn) {
                 btn.innerText = "{{ __('settings.save_settings') }}";
                 btn.disabled = false;

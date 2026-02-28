@@ -48,6 +48,8 @@
 - MySQL >= 5.7
 - Redis
 - Composer
+- Node.js >= 20.19.0
+- npm
 
 ## 安装步骤
 
@@ -55,6 +57,7 @@
 
 ```bash
 composer install
+npm install
 ```
 
 ### 2. 配置环境变量

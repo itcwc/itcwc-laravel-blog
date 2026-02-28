@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     'code_highlighting' => [
         /*
          * To highlight code, we'll use Shiki under the hood. Make sure it's installed.
@@ -14,7 +15,7 @@ return [
          *
          * More info: https://github.com/shikijs/shiki/blob/main/docs/themes.md
          */
-        'theme' => 'github-light',
+        'theme' => 'github-dark',
     ],
 
     /*

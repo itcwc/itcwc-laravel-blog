@@ -1,4 +1,9 @@
 @import 'tailwindcss';
+@import 'easymde/dist/easymde.min.css';
+@import '@fontsource/inter/300.css';
+@import '@fontsource/inter/400.css';
+
+@plugin "@tailwindcss/typography";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -6,6 +11,36 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    --font-sans: 'Inter', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+    --color-zinc-50: #fafafa;
+    --color-zinc-300: #d4d4d4;
+    --color-zinc-400: #a3a3a3;
+    --color-zinc-900: #262626;
+    --color-border: #e5e5e5;
+}
+
+@layer utilities {
+    .blog-container {
+        max-width: 720px;
+    }
+
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
+mark {
+    background-color: #f4f4f5;
+    color: #18181b;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.login-out-form {
+    margin-bottom: 0.35rem;
 }

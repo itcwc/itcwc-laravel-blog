@@ -48,6 +48,8 @@ A minimalist personal digital garden system for showcasing projects, notes, and 
 - MySQL >= 5.7
 - Redis
 - Composer
+- Node.js >= 20.19.0
+- npm
 
 ## Installation
 
@@ -55,6 +57,7 @@ A minimalist personal digital garden system for showcasing projects, notes, and 
 
 ```bash
 composer install
+npm install
 ```
 
 ### 2. Configure Environment

@@ -50,7 +50,7 @@ class QuickEditController extends Controller
         if (!$request->id) {
             $content->published_date = now();
             if ($validated['type'] === 'article') {
-                $content->slug = Str::slug($validated['title']) ?: time();
+                $content->slug = $this->generateUniqueSlug($validated['title']);
             }
         }
 
@@ -97,5 +97,24 @@ class QuickEditController extends Controller
         $content->delete();
 
         return response()->json(['success' => true]);
+    }
+
+    protected function generateUniqueSlug(string $title): string
+    {
+        preg_match_all('/[a-zA-Z][a-zA-Z0-9\-]*/', $title, $matches);
+
+        $baseSlug = !empty($matches[0])
+            ? strtolower(implode('-', $matches[0]))
+            : (string) time();
+
+        $slug = $baseSlug;
+        $counter = 1;
+
+        while (Content::where('slug', $slug)->exists()) {
+            $slug = $baseSlug . '-' . $counter;
+            $counter++;
+        }
+
+        return $slug;
     }
 }
