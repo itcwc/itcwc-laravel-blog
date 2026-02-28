@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
@@ -72,20 +72,20 @@
     <div class="sticky top-0 z-[60] bg-black/90 text-white backdrop-blur-sm">
         <div class="max-w-7xl mx-auto px-6 h-10 flex items-center justify-between">
             <div class="flex items-center gap-4">
-                <span class="text-[9px] tracking-[0.3em] uppercase opacity-50">Admin Mode</span>
+                <span class="text-[9px] tracking-[0.3em] uppercase opacity-50">{{ __('ui.admin_mode') }}</span>
                 <div class="h-3 w-[1px] bg-zinc-800"></div>
-                <a href="/" class="text-[9px] tracking-[0.2em] uppercase hover:text-zinc-400 transition">Dashboard</a>
+                <a href="/" class="text-[9px] tracking-[0.2em] uppercase hover:text-zinc-400 transition">{{ __('ui.dashboard') }}</a>
             </div>
 
             <div class="flex items-center gap-6">
 
                 @if(request()->is('projects*'))
                 <button onclick="handleProjectEdit()" class="text-[9px] border border-zinc-500 px-2 py-0.5 tracking-[0.2em] uppercase hover:bg-white hover:text-black transition">
-                    + New Project
+                    {{ __('ui.new_project') }}
                 </button>
                 @else
                 <button onclick="toggleQuickPost()" class="text-[9px] border border-zinc-500 px-2 py-0.5 tracking-[0.2em] uppercase hover:bg-white hover:text-black transition">
-                    + New
+                    {{ __('ui.new') }}
                 </button>
                 @endif
 
@@ -94,13 +94,13 @@
                         <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
                         <circle cx="12" cy="12" r="3"></circle>
                     </svg>
-                    Settings
+                    {{ __('ui.settings') }}
                 </button>
 
 
                 <form action="{{ route('logout') }}" method="POST" class="inline login-out-form">
                     @csrf
-                    <button type="submit" class="text-[9px] tracking-[0.2em] uppercase opacity-50 hover:opacity-100">Logout</button>
+                    <button type="submit" class="text-[9px] tracking-[0.2em] uppercase opacity-50 hover:opacity-100">{{ __('ui.logout') }}</button>
                 </form>
             </div>
         </div>
@@ -110,11 +110,9 @@
     @include('components.header')
     @include('components.search')
 
-    <!-- 核心内容区 - 缩小间距 -->
     <main class="max-w-6xl mx-auto px-8 pt-32 pb-24">
         @yield('content')
     </main>
-    {{-- 只有登录后才注入管理插件 --}}
     @auth
     <div class="fixed bottom-10 right-10 z-[70] flex flex-col gap-4">
 
@@ -146,7 +144,6 @@
         </form>
     </div>
 
-    {{-- 这里放置你的“快捷发布”弹窗组件 --}}
     @include('admin.quick-post-modal')
     @endauth
 
@@ -155,7 +152,6 @@
     @include('components.footer')
 
     <script>
-        // 搜索功能
         const searchOpen = document.getElementById('search-open');
         const searchClose = document.getElementById('search-close');
         const searchOverlay = document.getElementById('search-overlay');
@@ -166,7 +162,6 @@
         const featuredSentence = document.getElementById('featured-sentence');
         let contentItems = document.querySelectorAll('.content-item');
 
-        // 搜索事件绑定
         searchOpen.addEventListener('click', () => {
             searchOverlay.style.opacity = '1';
             searchOverlay.style.pointerEvents = 'auto';
@@ -185,13 +180,11 @@
             if (e.key === 'Enter') {
                 const keyword = searchInput.value.trim();
                 if (keyword) {
-                    // 直接跳转到首页，带上搜索参数
                     window.location.href = `/?q=${encodeURIComponent(keyword)}`;
                 }
             }
         });
 
-        // 回到顶部功能
         document.querySelector('footer a').addEventListener('click', (e) => {
             e.preventDefault();
             window.scrollTo({
@@ -212,13 +205,12 @@
         <p class="mt-2">{{ $site->copyright }} {{ date('Y') }}</p>
     </div>
 
-    {{-- 社交链接图标 --}}
     <div class="flex justify-center gap-4 mt-6 text-zinc-300">
         @if($site->social_github)
-        <a href="{{ $site->social_github }}" class="hover:text-black transition">Github</a>
+        <a href="{{ $site->social_github }}" class="hover:text-black transition">{{ __('site.github') }}</a>
         @endif
         @if($site->social_twitter)
-        <a href="{{ $site->social_twitter }}" class="hover:text-black transition">Twitter</a>
+        <a href="{{ $site->social_twitter }}" class="hover:text-black transition">{{ __('site.twitter') }}</a>
         @endif
     </div>
 </footer>

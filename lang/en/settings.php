@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'system_dashboard' => 'System Dashboard',
+    'basic_information' => '01. Basic Information',
+    'site_name' => 'Site Name',
+    'site_url' => 'Site URL',
+    'site_slogan' => 'Site Slogan',
+    'assets_branding' => '05. Assets & Branding',
+    'site_icon' => 'Site Icon',
+    'social_share_image' => 'Social Share Image',
+    'search_optimization' => '02. Search Optimization',
+    'seo_title' => 'SEO Title',
+    'seo_keywords' => 'SEO Keywords',
+    'seo_description' => 'SEO Description',
+    'comma_separated' => 'Comma separated...',
+    'social_presence' => '03. Social Presence',
+    'footer_identity' => '04. Footer & Identity',
+    'copyright_text' => 'Copyright Text',
+    'footer_additional_text' => 'Footer Additional Text (Markdown supported)',
+    'maintenance_mode' => 'Maintenance Mode',
+    'maintenance_mode_desc' => 'When active, visitors will see a maintenance page.',
+    'save_settings' => 'Save Application Settings',
+    'processing' => 'Processing...',
+    'settings_updated' => 'Settings Updated',
+    'failed_to_save' => 'Failed to save settings: ',
+];

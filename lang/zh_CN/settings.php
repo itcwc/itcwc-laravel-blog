@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'system_dashboard' => '系统控制台',
+    'basic_information' => '01. 基本信息',
+    'site_name' => '站点名称',
+    'site_url' => '站点地址',
+    'site_slogan' => '站点标语',
+    'assets_branding' => '05. 资源与品牌',
+    'site_icon' => '站点图标',
+    'social_share_image' => '社交分享图片',
+    'search_optimization' => '02. 搜索优化',
+    'seo_title' => 'SEO 标题',
+    'seo_keywords' => 'SEO 关键词',
+    'seo_description' => 'SEO 描述',
+    'comma_separated' => '用逗号分隔...',
+    'social_presence' => '03. 社交媒体',
+    'footer_identity' => '04. 页脚与身份',
+    'copyright_text' => '版权文字',
+    'footer_additional_text' => '页脚附加文字 (支持 Markdown)',
+    'maintenance_mode' => '维护模式',
+    'maintenance_mode_desc' => '启用后，访客将看到维护页面。',
+    'save_settings' => '保存应用设置',
+    'processing' => '处理中...',
+    'settings_updated' => '设置已更新',
+    'failed_to_save' => '保存设置失败：',
+];

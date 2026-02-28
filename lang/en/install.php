@@ -15,4 +15,6 @@ return [
     'recheck' => 'Recheck Environment',
     'check_again' => 'Check Again',
     'select_language' => 'Language',
+    'db_connection_failed' => 'Database connection failed: ',
+    'installation_started' => 'Installation started in background.',
 ];

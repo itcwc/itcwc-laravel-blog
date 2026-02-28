@@ -39,7 +39,7 @@ class InstallController extends Controller
             $pdo->exec("CREATE DATABASE IF NOT EXISTS `{$dbName}` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
         } catch (\PDOException $e) {
             return response()->json([
-                'message' => 'Database connection failed: ' . $e->getMessage(),
+                'message' => __('install.db_connection_failed') . $e->getMessage(),
             ], 422);
         }
 
@@ -49,7 +49,7 @@ class InstallController extends Controller
 
         return response()->json([
             'status' => 'queued',
-            'message' => 'Installation started in background.',
+            'message' => __('install.installation_started'),
             'redirect' => route('install.success', ['email' => $data['admin_email']])
         ]);
     }
@@ -86,7 +86,6 @@ class InstallController extends Controller
             app()->setLocale(session('install_locale'));
         }
 
-        // 检查 Redis 是否可用 (如果配置了 Redis 队列)
         $redisPassed = true;
         if (config('queue.default') === 'redis') {
             try {
@@ -108,7 +107,7 @@ class InstallController extends Controller
                 'openssl'   => extension_loaded('openssl'),
                 'gd'        => extension_loaded('gd'),
                 'fileinfo'  => extension_loaded('fileinfo'),
-                'redis'     => extension_loaded('redis'), // 检查PHP Redis扩展
+                'redis'     => extension_loaded('redis'),
             ],
             'permissions' => [
                 'storage' => is_writable(storage_path()),
@@ -121,7 +120,6 @@ class InstallController extends Controller
             ]
         ];
 
-        // 检查所有项目是否通过
         $allPassed = $requirements['php']['status'] &&
             !in_array(false, $requirements['extensions']) &&
             !in_array(false, $requirements['permissions']) &&

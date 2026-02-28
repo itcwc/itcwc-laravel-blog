@@ -15,4 +15,6 @@ return [
     'recheck' => '重新检测',
     'check_again' => '重新检测',
     'select_language' => '语言',
+    'db_connection_failed' => '数据库连接失败：',
+    'installation_started' => '安装已在后台启动。',
 ];

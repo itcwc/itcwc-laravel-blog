@@ -1,79 +1,119 @@
 # Digital Garden
 
-一个简洁的个人数字花园系统，用于展示项目、笔记和博客文章。
+A minimalist personal digital garden system for showcasing projects, notes, and blog posts.
 
-## 环境要求
+**Repository**: [https://github.com/itcwc/itcwc-laravel-blog](https://github.com/itcwc/itcwc-laravel-blog)
+
+**[中文文档](README_CN.md)**
+
+## Screenshots
+
+### Homepage
+
+![Homepage](screenshots/en/homepage.png)
+
+### Projects
+
+![Projects](screenshots/en/projects.png)
+
+### Blog
+
+![Blog](screenshots/en/blog.png)
+
+### Note
+
+![Note](screenshots/en/note.png)
+
+### Admin Panel
+
+#### Blog Management
+
+![Admin Blog](screenshots/en/admin-blog.png)
+
+#### Note Management
+
+![Admin Note](screenshots/en/admin-note.png)
+
+#### Project Management
+
+![Admin Projects](screenshots/en/admin-projects.png)
+
+#### Settings
+
+![Admin Settings](screenshots/en/admin-setting.png)
+
+## Requirements
 
 - PHP >= 8.2
 - MySQL >= 5.7
 - Redis
 - Composer
 
-## 安装步骤
+## Installation
 
-### 1. 安装项目依赖
+### 1. Install Dependencies
 
 ```bash
 composer install
 ```
 
-### 2. 配置环境变量
+### 2. Configure Environment
 
-复制 `.env.example` 为 `.env` 并修改配置：
+Copy `.env.example` to `.env` and modify the configuration:
 
 ```bash
 cp .env.example .env
 ```
 
-### 3. 生成应用密钥
+### 3. Generate Application Key
 
 ```bash
 php artisan key:generate
 ```
 
-### 4. 基础配置
+### 4. Basic Configuration
 
-编辑 `.env` 文件，确保以下配置正确：
+Edit the `.env` file and ensure the following settings are correct:
 
 ```env
-# 队列驱动必须设置为 redis
+# Queue driver must be set to redis
 QUEUE_CONNECTION=redis
 
-# Redis 连接信息
+# Redis connection
 REDIS_HOST=127.0.0.1
 REDIS_PASSWORD=null
 REDIS_PORT=6379
 ```
 
-### 5. 启动队列工作进程
+### 5. Start Queue Worker
 
 ```bash
 php artisan queue:work
 ```
 
-> 建议使用 Supervisor 保持队列进程持续运行。
+> It is recommended to use Supervisor to keep the queue process running.
 
-### 6. 执行安装向导
+### 6. Run Installation Wizard
 
-访问以下地址开始安装：
+Visit the following URL to start the installation:
 
 ```
 http://your-app.test/install
 ```
 
-安装向导将引导您完成：
-- 环境检测
-- 数据库配置
-- 管理员账号创建
-- 语言选择
+The installation wizard will guide you through:
+- Environment check
+- Database configuration
+- Admin account creation
+- Language selection
 
-## 开发
+## Development
 
 ```bash
-# 启动开发服务器
+# Start development server
 php artisan serve
 
-# 监听前端资源变化
+# Watch frontend assets
 npm run dev
 ```
 
