@@ -183,6 +183,7 @@
             if (deleteBtn) {
                 deleteBtn.classList.toggle('hidden', !isEdit);
             }
+            initEditor();
         }
     }
 
