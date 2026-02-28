@@ -235,7 +235,7 @@
         }
     }
 
-function switchType(type) {
+    function switchType(type) {
         currentType = type;
 
         // 注意：这里不要重置 selectedFiles 和 existingImages，否则切换选项卡数据就丢了
@@ -332,8 +332,8 @@ function switchType(type) {
         });
     }
 
-// 辅助函数：创建预览 DOM
-function createPreviewElement(src, onRemove) {
+    // 辅助函数：创建预览 DOM
+    function createPreviewElement(src, onRemove) {
         const isBase64 = src.startsWith('data:');
         const isFullUrl = src.startsWith('http');
 
@@ -447,13 +447,30 @@ function createPreviewElement(src, onRemove) {
         opacity: 1;
     }
 
+/* 限制编辑器最大高度，超出显示滚动条 */
     .CodeMirror {
+        min-height: 150px; /* 设置一个最小高度 */
+        max-height: 500px; /* 设置一个最大高度，根据你的界面调整 */
+        height: auto;      /* 允许初始高度根据内容自适应 */
         border-color: #f4f4f5 !important;
         border-radius: 0 !important;
         font-family: 'Inter', sans-serif;
+        overflow-y: hidden; /* 隐藏CodeMirror本身的溢出 */
     }
 
+    /* 限制滚动区域的高度 */
+    .CodeMirror-scroll {
+        max-height: 500px; /* 必须与 .CodeMirror 的 max-height 一致 */
+        overflow-y: auto;  /* 允许垂直滚动 */
+    }
+
+    /* 隐藏原生的 textarea */
     .CodeMirror-editor-wrapper+textarea {
         display: none !important;
+    }
+
+    /* 修复全屏模式下的层级问题 */
+    .CodeMirror-fullscreen {
+        z-index: 9999 !important;
     }
 </style>
