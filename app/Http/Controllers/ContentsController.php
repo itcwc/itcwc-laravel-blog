@@ -33,8 +33,8 @@ class ContentsController extends Controller
             ->paginate(10)
             ->withQueryString(); // 关键：让分页链接带上 ?q=xxx
 
-        // 只有在没有搜索时才显示最新的一句话
-        $featured = $keyword ? null : Content::where('type', 'note')->latest()->first();
+        // 网站基础介绍 默认开启
+        $featured = 1;
 
         return view('index', compact('contents', 'featured', 'keyword'));
     }
