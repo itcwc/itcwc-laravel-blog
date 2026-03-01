@@ -41,7 +41,7 @@
             prose-a:text-zinc-900 prose-a:no-underline prose-a:border-b prose-a:border-zinc-200 hover:prose-a:border-zinc-900 prose-a:transition
             prose-blockquote:font-light prose-blockquote:italic prose-blockquote:text-zinc-400
             prose-img:rounded-sm prose-img:shadow-sm">
-        {!! $article->content !!}
+        {!! $article->contentMd !!}
     </div>
 
     <div class="mt-20 pt-10 border-t border-zinc-50">

@@ -53,7 +53,7 @@ class ContentsController extends Controller
                 $query->where('slug', $slug)->orWhere('id', $slug);
             })->firstOrFail();
 
-        $article->content = $this->markdownToHtml($article->content);
+        $article->contentMd = $this->markdownToHtml($article->content);
 
         return view('article', compact('article'));
     }
