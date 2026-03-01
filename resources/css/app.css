@@ -2,6 +2,7 @@
 @import 'easymde/dist/easymde.min.css';
 @import '@fontsource/inter/300.css';
 @import '@fontsource/inter/400.css';
+@import 'highlight.js/styles/monokai';
 
 @plugin "@tailwindcss/typography";
 

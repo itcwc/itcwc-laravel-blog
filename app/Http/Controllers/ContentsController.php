@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Content;
 use Illuminate\Http\Request;
-use Spatie\LaravelMarkdown\MarkdownRenderer; // 假设你之后会用这个，或用原生解析
+use League\CommonMark\MarkdownConverter;
+use League\CommonMark\Environment\Environment;
+use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
+use League\CommonMark\Extension\GithubFlavoredMarkdownExtension;
 
 class ContentsController extends Controller
 {
@@ -50,7 +53,20 @@ class ContentsController extends Controller
                 $query->where('slug', $slug)->orWhere('id', $slug);
             })->firstOrFail();
 
+        $article->content = $this->markdownToHtml($article->content);
+
         return view('article', compact('article'));
+    }
+
+    public function  markdownToHtml(string $markdown): string
+    {
+        $environment = new Environment([]);
+        $environment->addExtension(new CommonMarkCoreExtension());
+        $environment->addExtension(new GithubFlavoredMarkdownExtension());
+
+        $converter = new MarkdownConverter($environment);
+
+        return (string) $converter->convert($markdown);
     }
 
     /**

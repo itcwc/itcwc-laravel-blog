@@ -157,9 +157,6 @@
                 behavior: 'smooth'
             });
         });
-
-
-
     </script>
     @yield('scripts')
 

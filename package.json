@@ -18,6 +18,6 @@
     "dependencies": {
         "@fontsource/inter": "^5.2.8",
         "easymde": "^2.20.0",
-        "shiki": "^4.0.0"
+        "highlight.js": "^11.11.1"
     }
 }
