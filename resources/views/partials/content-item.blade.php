@@ -21,9 +21,9 @@
 
     <div class="text-zinc-400 leading-relaxed font-light text-lg mb-8 line-clamp-3">
         @if(!empty($keyword))
-        <x-highlight :text="Str::limit(strip_tags($item->content), 200)" :term="$keyword" />
+        <x-highlight :text="Str::limit(strip_tags($item->content_html), 200)" :term="$keyword" />
         @else
-        {{ Str::limit(strip_tags($item->content), 200) }}
+        {{ Str::limit(strip_tags($item->content_html), 200) }}
         @endif
     </div>
 

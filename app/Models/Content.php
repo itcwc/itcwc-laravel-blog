@@ -3,6 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use League\CommonMark\MarkdownConverter;
+use League\CommonMark\Environment\Environment;
+use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
+use League\CommonMark\Extension\GithubFlavoredMarkdownExtension;
 
 class Content extends Model
 {
@@ -69,5 +73,16 @@ class Content extends Model
     public function getImagesAttribute($value)
     {
         return json_decode($value, true) ?? [];
+    }
+
+    public function getContentHtmlAttribute(): string
+    {
+        $environment = new Environment([]);
+        $environment->addExtension(new CommonMarkCoreExtension());
+        $environment->addExtension(new GithubFlavoredMarkdownExtension());
+
+        $converter = new MarkdownConverter($environment);
+
+        return (string) $converter->convert($this->content);
     }
 }
